@@ -2,64 +2,154 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Ignacio Urrutia GAJARDO's CV</title>
+        <title>Ignacio Urrutia Gajardo's CV</title>
         <style>
             body { font-family: Arial, sans-serif; margin: 40px; }
             .section { margin-bottom: 20px; }
-            .cv-title { font-size: 50px; margin-bottom: 20px; font-weight: bold; text-transform: uppercase; }
+            .cv-title { font-size: 50px; margin-bottom: 20px; font-weight: bolder; text-transform: uppercase; }
             .cv-subtitle { font-size: 24px; margin-bottom: 20px; font-weight: bold; }
             .cv-header { margin-bottom: 40px; text-align: center; }
-            .section-title { font-size: 24px; margin-bottom: 10px; }
+            .section-title { font-size: 24px; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; }
             .contact-info { display: flex; flex-direction: row; justify-content: space-around; }
+            
+            .experience_item_header { display: flex; justify-content: space-between; }
+            .experience_position { font-size: 20px; font-weight: bold; }
+            .experience_company { font-size: 18px; }
+
             .item { margin-bottom: 5px; }
             .details { margin-left: 20px; }
             .details li { margin-bottom: 5px; }
+
+            .progress { height: 10px; background-color: #d1d1d1; width: 200px; border-radius: 5px; }
+            .progress-bar { background-color: #3C409F; height: 10px; border-radius: 5px; }
+
+            .skills-list { display: flex; list-style: none;  flex-direction: row; flex-wrap: wrap; padding: 0; }
+            .skills-list li { margin-right: 20px; margin-bottom: 20px; }
+
+            ul { padding: 0; }
+
+
+            @media print {
+                body {-webkit-print-color-adjust: exact;}
+            }
         </style>
         <script src="https://kit.fontawesome.com/265b36fe9b.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="cv-header">
-            <p class="cv-title">Ignacio Urrutia GAJARDO</p>
+            <p class="cv-title">Ignacio Urrutia Gajardo</p>
             <p class="cv-subtitle">Software Developer</p>
         </div>
 
         <div class="contact-info section">
-            <div class='item'><i class='fas fa-solid fa-phone'></i> +123456789</div><div class='item'><i class='fas fa-solid fa-envelope'></i> john.doe@example.com</div><div class='item'><i class='fas fa-solid fa-globe'></i> johndoe.com</div><div class='item'><i class='fas fa-brands fa-linkedin'></i> linkedin.com/in/johndoe</div>
+            
+                     <div class='item'>
+                        <i class='fas fa-solid fa-phone'></i>
+                        <a href='tel:+56 9 6170 8313'>+56 9 6170 8313</a>
+                    </div>
+                     
+                     <div class='item'>
+                        <i class='fas fa-solid fa-envelope'></i>
+                        <a href='mailto:ignacio.urrutia@uc.cl'>ignacio.urrutia@uc.cl</a>
+                    </div>
+                     
+                     <div class='item'>
+                        <i class='fas fa-solid fa-globe'></i>
+                        <a href='https://www.NachoUrrutia.com'>NachoUrrutia.com</a>
+                    </div>
+                     
+                     <div class='item'>
+                        <i class='fas fa-brands fa-linkedin'></i>
+                        <a href='https://www.linkedin.com/in/NachoUrrutia'>NachoUrrutia</a>
+                    </div>
+                     
         </div>
 
         <div class="section">
             <div class="section-title">Summary</div>
-            <p>A brief overview of your professional background, achievements, and skills.</p>
+            <hr>
+            <p>Egresado de ingeniería en computación de la Universidad Católica de Chile apasionado por la tecnología y la inteligencia artificial. En busca de trabajo de título donde pueda aplicar habilidades de desarrollo de Software. Ingeniero experimentado en desarrollo full-stack, manejo de modelos de inteligencia artificial y trabajo con clientes.</p>
         </div>
 
         <div class="section">
             <div class="section-title">Experience</div>
-            <div class='item'><b>Senior Software Developer</b> at Tech Solutions (Jan 2020 - Present)<ul class='details'><li>Lead the development of a new project...</li><li>Implemented a CI/CD pipeline...</li></ul></div><div class='item'><b>Software Developer</b> at Innovatech (May 2016 - Dec 2019)<ul class='details'><li>Developed multiple high-impact software applications...</li><li>Contributed to the redesign of the company’s product...</li></ul></div>
+            <hr>
+            
+                     <div class='item'>
+                        <div class='experience_item_header'>
+                            <div>
+                                <div class='experience_position'>Senior Software Developer</div>
+                                <div class='experience_company'>Tech Solutions</div> 
+                            </div>
+                            <div class='experience_dates'>Jan 2020 - Present</div>
+                        </div>
+                        <ul class='details'><li>Lead the development of a new project...</li><li>Implemented a CI/CD pipeline...</li></ul></div>
+                     
+                     <div class='item'>
+                        <div class='experience_item_header'>
+                            <div>
+                                <div class='experience_position'>Software Developer</div>
+                                <div class='experience_company'>Innovatech</div> 
+                            </div>
+                            <div class='experience_dates'>May 2016 - Dec 2019</div>
+                        </div>
+                        <ul class='details'><li>Developed multiple high-impact software applications...</li><li>Contributed to the redesign of the company’s product...</li></ul></div>
+                     
         </div>
 
         <div class="section">
             <div class="section-title">Education</div>
+            <hr>
             
-                     <div class='item'><b>MSc in Computer Science</b>, University of Tech (2013 - 2015)</div>
+                     <div class='item'>
+                        <b>MSc in Computer Science</b>, University of Tech (2013 - 2015)</div>
                      
-                     <div class='item'><b>BSc in Computer Science</b>, Tech College (2009 - 2013)</div>
+                     <div class='item'>
+                        <b>BSc in Computer Science</b>, Tech College (2009 - 2013)</div>
                      
         </div>
 
         <div class="section">
             <div class="section-title">Projects</div>
+            <hr>
             <div class='item'><b>Project 1</b>: A brief description of the project... - <a href='http://example.com/project1'>Link</a> (Technologies: Python, Django, Docker)</div><div class='item'><b>Project 2</b>: A brief description of the project... - <a href='http://example.com/project2'>Link</a> (Technologies: JavaScript, React, Node.js)</div>
         </div>
 
         <div class="section">
             <div class="section-title">Skills</div>
-            <ul class="details">
-                <li>Python</li><li>JavaScript</li><li>HTML/CSS</li><li>React</li>
+            <hr>
+            <ul class="skills-list">
+                
+                            <li>Python
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                         
+                            <li>JavaScript
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                         
+                            <li>React
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                         
+                            <li>HTML/CSS
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                         
             </ul>
         </div>
 
         <div class="section">
             <div class="section-title">Certifications</div>
+            <hr>
             <div class='item'>Certified Kubernetes Administrator (Issuer: The Linux Foundation, Date: 2020)</div><div class='item'>AWS Certified Solutions Architect (Issuer: Amazon Web Services, Date: 2019)</div>
         </div>
 
