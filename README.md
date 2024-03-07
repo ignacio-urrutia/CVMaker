@@ -1,7 +1,7 @@
 # CV Maker
 
 ## Description
-This is a simple CV maker that takes in a detailed json file and outputs a pdf file with a formatted CV.
+Custom CV maker that takes in a detailed json file and outputs a pdf file with a formatted CV.
 
 ## How to Run
 
