@@ -1,9 +1,13 @@
 import json
 import asyncio
+import sys
 from pyppeteer import launch
+from secrets import token_urlsafe
+import os
 
+TEMP_PATH = os.path.join(os.path.dirname(__file__), 'temp')
 
-def json_to_html(json_file, language='english'):
+def json_to_html(json_file, language='english', output_filename='cv.html'):
     titles = {
         'english': {
             'summary': 'Summary',
@@ -72,7 +76,11 @@ def json_to_html(json_file, language='english'):
             .cv-subtitle {{ font-size: 24px; margin-bottom: 20px; font-weight: bold; }}
             .cv-header {{ margin-bottom: 40px; text-align: center; }}
             .section-title {{ font-size: 24px; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; }}
-            .contact-info {{ display: flex; flex-direction: row; justify-content: space-around; }}
+            
+            .summary-section {{ text-align: justify; }}
+
+            .contact-info {{ display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap; }}
+            .contact-info .item {{ margin-left: 20px; margin-right: 20px; margin-bottom: 10px; }}
             
             .experience_item_header {{ display: flex; justify-content: space-between; }}
             .experience_company {{ font-size: 20px; font-weight: bold; }}
@@ -89,6 +97,8 @@ def json_to_html(json_file, language='english'):
 
             .skills-list {{ display: flex; list-style: none;  flex-direction: row; flex-wrap: wrap; padding: 0; }}
             .skills-list li {{ margin-right: 20px; margin-bottom: 20px; }}
+
+            .custom_space {{ padding-bottom: 120px; }}
 
             ul {{ padding: 0; }}
 
@@ -117,7 +127,7 @@ def json_to_html(json_file, language='english'):
         <div class="section">
             <div class="section-title">{titles_dict['summary']}</div>
             <hr>
-            <p>{cv_data['summary']}</p>
+            <div class="summary-section">{cv_data['summary']}</div>
         </div>
 
         <div class="section">
@@ -153,6 +163,8 @@ def json_to_html(json_file, language='english'):
         </div>
         '''}
 
+        <div class="custom_space"></div>
+
         {'' if 'skills' not in cv_data else f'''
         <div class="section">
             <div class="section-title">{titles_dict['skills']}</div>
@@ -169,6 +181,7 @@ def json_to_html(json_file, language='english'):
         </div>
         '''}
 
+
         {'' if 'certifications' not in cv_data else f'''
         <div class="section">
             <div class="section-title">{titles_dict['certifications']}</div>
@@ -176,6 +189,7 @@ def json_to_html(json_file, language='english'):
             {''.join(f"<div class='item'>{cert['name']} (Issuer: {cert['issuer']}, Date: {cert['date']})</div>" for cert in cv_data['certifications'])}
         </div>
         '''}
+
 
         {'' if 'extra_experience' not in cv_data else f'''
         <div class="section">
@@ -194,6 +208,7 @@ def json_to_html(json_file, language='english'):
             </div>
         </div>
         '''}
+
 
         {'' if 'more_info' not in cv_data else f'''
         <div class="section">
@@ -215,8 +230,7 @@ def json_to_html(json_file, language='english'):
     </body>
     </html>
     """
-    
-    output_filename = json_file.replace('.json', '.html')
+
     with open(output_filename, 'w') as output_file:
         output_file.write(html_content)
 
@@ -240,10 +254,26 @@ async def generate_pdf_from_html(html_content, pdf_path):
     
     await browser.close()
 
-# Replace 'cv.json' with the path to your JSON file
-json_to_html('cv.json', 'english')
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('Usage: python main.py <path-to-cv-json> <path-to-output-html> <language>')
+        sys.exit(1)
+    
+    if len(sys.argv) == 4:
+        json_path = sys.argv[1]
+        output_path = sys.argv[2]
+        language = sys.argv[3]
+    elif len(sys.argv) == 3:
+        json_path = sys.argv[1]
+        output_path = sys.argv[2]
+        language = 'english'
+    elif len(sys.argv) == 2:
+        json_path = sys.argv[1]
+        output_path = 'cv.pdf'
+        language = 'english'
 
+    random_filename = os.path.join(TEMP_PATH, f'{token_urlsafe(8)}.html')
+    json_to_html(json_path, language, random_filename)
+    html_content = open(random_filename, 'r').read()
 
-html_content = open('cv.html', 'r').read()
-pdf_path = 'cv.pdf'
-asyncio.get_event_loop().run_until_complete(generate_pdf_from_html(html_content, pdf_path))
+    asyncio.get_event_loop().run_until_complete(generate_pdf_from_html(html_content, output_path))
