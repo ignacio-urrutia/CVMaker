@@ -13,15 +13,17 @@
             .contact-info { display: flex; flex-direction: row; justify-content: space-around; }
             
             .experience_item_header { display: flex; justify-content: space-between; }
-            .experience_position { font-size: 20px; font-weight: bold; }
-            .experience_company { font-size: 18px; }
+            .experience_company { font-size: 20px; font-weight: bold; }
+            .experience_position { font-size: 18px; }
 
             .item { margin-bottom: 5px; }
             .details { margin-left: 20px; }
             .details li { margin-bottom: 5px; }
 
-            .progress { height: 10px; background-color: #d1d1d1; width: 200px; border-radius: 5px; }
+            .progress { height: 10px; background-color: #d1d1d1; width: 150px; border-radius: 5px; }
             .progress-bar { background-color: #3C409F; height: 10px; border-radius: 5px; }
+            
+            .languages-section { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }
 
             .skills-list { display: flex; list-style: none;  flex-direction: row; flex-wrap: wrap; padding: 0; }
             .skills-list li { margin-right: 20px; margin-bottom: 20px; }
@@ -38,7 +40,7 @@
     <body>
         <div class="cv-header">
             <p class="cv-title">Ignacio Urrutia Gajardo</p>
-            <p class="cv-subtitle">Software Developer</p>
+            <p class="cv-subtitle">Full-Stack Developer & Tech Enthusiast</p>
         </div>
 
         <div class="contact-info section">
@@ -68,7 +70,7 @@
         <div class="section">
             <div class="section-title">Summary</div>
             <hr>
-            <p>Egresado de ingeniería en computación de la Universidad Católica de Chile apasionado por la tecnología y la inteligencia artificial. En busca de trabajo de título donde pueda aplicar habilidades de desarrollo de Software. Ingeniero experimentado en desarrollo full-stack, manejo de modelos de inteligencia artificial y trabajo con clientes.</p>
+            <p>Graduate in Computer Engineering from the Catholic University of Chile, with a deep passion for technology and AI. In search of a thesis project to leverage my software development skills. I have solid experience in full-stack development, AI model management, and client interactions.</p>
         </div>
 
         <div class="section">
@@ -78,22 +80,32 @@
                      <div class='item'>
                         <div class='experience_item_header'>
                             <div>
-                                <div class='experience_position'>Senior Software Developer</div>
-                                <div class='experience_company'>Tech Solutions</div> 
+                                <div class='experience_company'>Unholster</div> 
+                                <div class='experience_position'>Full-Stack Developer / Data Scientist</div>
                             </div>
-                            <div class='experience_dates'>Jan 2020 - Present</div>
+                            <div class='experience_dates'>Jan 2023 - Jul 2023</div>
                         </div>
-                        <ul class='details'><li>Lead the development of a new project...</li><li>Implemented a CI/CD pipeline...</li></ul></div>
+                        <ul class='details'><li>I developed new features for a financial web platform using Django and React</li><li>I engaged in weekly client meetings to showcase new implementations</li><li>I handled platform deploys to both staging and production environments</li><li>I conducted data analysis and extracted statistics for various projects</li></ul></div>
                      
                      <div class='item'>
                         <div class='experience_item_header'>
                             <div>
-                                <div class='experience_position'>Software Developer</div>
-                                <div class='experience_company'>Innovatech</div> 
+                                <div class='experience_company'>Assets Ltda.</div> 
+                                <div class='experience_position'>Technology Advisor</div>
                             </div>
-                            <div class='experience_dates'>May 2016 - Dec 2019</div>
+                            <div class='experience_dates'>Jan 2022 - Present</div>
                         </div>
-                        <ul class='details'><li>Developed multiple high-impact software applications...</li><li>Contributed to the redesign of the company’s product...</li></ul></div>
+                        <ul class='details'><li>I participated in weekly status meetings to review advances in technology, IT, and computing tasks</li><li>I Implemented the ClickUp project management platform for task monitoring and control</li></ul></div>
+                     
+                     <div class='item'>
+                        <div class='experience_item_header'>
+                            <div>
+                                <div class='experience_company'>Pontificial Universidad Católica de Chile</div> 
+                                <div class='experience_position'>Teaching Assistant and Grader</div>
+                            </div>
+                            <div class='experience_dates'>March 2020 - Dec 2022</div>
+                        </div>
+                        <ul class='details'><li>Assisted and graded various courses, including Introduction to Programming, Advanced Programming, Artificial Intelligence, and more.</li></ul></div>
                      
         </div>
 
@@ -102,19 +114,16 @@
             <hr>
             
                      <div class='item'>
-                        <b>MSc in Computer Science</b>, University of Tech (2013 - 2015)</div>
+                        <b>Pontificial Universidad Católica de Chile</b>: Civil Computer Engineering (2018 - 2023)</div>
                      
                      <div class='item'>
-                        <b>BSc in Computer Science</b>, Tech College (2009 - 2013)</div>
+                        <b>University of Melbourne</b>: Exchange Student (July 2023 - Dec 2023)</div>
                      
         </div>
 
-        <div class="section">
-            <div class="section-title">Projects</div>
-            <hr>
-            <div class='item'><b>Project 1</b>: A brief description of the project... - <a href='http://example.com/project1'>Link</a> (Technologies: Python, Django, Docker)</div><div class='item'><b>Project 2</b>: A brief description of the project... - <a href='http://example.com/project2'>Link</a> (Technologies: JavaScript, React, Node.js)</div>
-        </div>
+        
 
+        
         <div class="section">
             <div class="section-title">Skills</div>
             <hr>
@@ -122,7 +131,7 @@
                 
                             <li>Python
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                          
@@ -138,20 +147,58 @@
                                 </div>
                             </li>
                          
-                            <li>HTML/CSS
+                            <li>TypeScript
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                         
+                            <li>Django
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                          
             </ul>
         </div>
+        
 
+        
+
+        
         <div class="section">
-            <div class="section-title">Certifications</div>
+            <div class="section-title">Other Experience</div>
             <hr>
-            <div class='item'>Certified Kubernetes Administrator (Issuer: The Linux Foundation, Date: 2020)</div><div class='item'>AWS Certified Solutions Architect (Issuer: Amazon Web Services, Date: 2019)</div>
+            <div class='item'><b>La Bodega 3D</b> - 3D Design and Printing Enterpreneurship (2021 - 2022)</div><div class='item'><b>Going UC</b> - Volunteer Tutoring (Jan 2022 - Jul 2022)</div>
         </div>
+        
+
+        
+        <div class="section">
+            <div class="section-title">Languages</div>
+            <hr>
+            <div class="languages-section">
+                <div class='item'>English (Fluent)</div><div class='item'>Spanish (Native)</div><div class='item'>French (Basic)</div>
+            </div>
+        </div>
+        
+
+        
+        <div class="section">
+            <div class="section-title">More About Me</div>
+            <hr>
+            <p>I enjoy learning new technologies and applying them to solve real-world problems. I am a quick learner and a team player who is always looking for ways to improve my skills and help others.</p>
+        </div>
+        
+
+        
+        <div class="section">
+            <div class="section-title">Other Interests</div>
+            <div class="languages-section">
+                <div class='item'>Calisthenics</div><div class='item'>3D Printing</div><div class='item'>Guitar</div><div class='item'>Drawing</div>
+            </div>
+        </div>
+        
 
     </body>
     </html>

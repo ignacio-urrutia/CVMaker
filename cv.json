@@ -1,0 +1,131 @@
+{
+  "personal_info": {
+    "name": "Ignacio Urrutia Gajardo",
+    "title": "Full-Stack Developer & Tech Enthusiast"
+  },
+  "contact_info": {
+    "phone": "+56 9 6170 8313",
+    "email": "ignacio.urrutia@uc.cl",
+    "website": "NachoUrrutia.com",
+    "linkedin": "NachoUrrutia"
+  },
+  "summary": "Graduate in Computer Engineering from the Catholic University of Chile, with a deep passion for technology and AI. In search of a thesis project to leverage my software development skills. I have solid experience in full-stack development, AI model management, and client interactions.",
+  "skills": {
+    "Python": 95,
+    "JavaScript": 80,
+    "React": 80,
+    "TypeScript": 50,
+    "Django": 90
+  },
+  "experience": [
+    {
+      "position": "Full-Stack Developer / Data Scientist",
+      "company": "Unholster",
+      "from": "Jan 2023",
+      "to": "Jul 2023",
+      "details": [
+        "I developed new features for a financial web platform using Django and React",
+        "I engaged in weekly client meetings to showcase new implementations",
+        "I handled platform deploys to both staging and production environments",
+        "I conducted data analysis and extracted statistics for various projects"
+      ]
+    },
+    {
+      "position": "Technology Advisor",
+      "company": "Assets Ltda.",
+      "from": "Jan 2022",
+      "to": "Present",
+      "details": [
+        "I participated in weekly status meetings to review advances in technology, IT, and computing tasks",
+        "I Implemented the ClickUp project management platform for task monitoring and control"
+      ]
+    },
+    {
+      "position": "Teaching Assistant and Grader",
+      "company": "Pontificial Universidad Católica de Chile",
+      "from": "March 2020",
+      "to": "Dec 2022",
+      "details": [
+        "Assisted and graded various courses, including Introduction to Programming, Advanced Programming, Artificial Intelligence, and more."
+      ]
+    }
+  ],
+  "extra_experience": [
+    {
+      "position": "Co-Founder",
+      "company": "La Bodega 3D",
+      "description": "3D Design and Printing Enterpreneurship",
+      "from": "2021",
+      "to": "2022",
+      "details": [
+        "I co-founded a 3D design and printing company"
+      ]
+    },
+    {
+      "position": "Volunteer Tutor",
+      "company": "Going UC",
+      "description": "Volunteer Tutoring",
+      "from": "Jan 2022",
+      "to": "Jul 2022",
+      "details": [
+        "I volunteered as a tutor for high school students"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Civil Computer Engineering",
+      "institution": "Pontificial Universidad Católica de Chile",
+      "from": "2018",
+      "to": "2023"
+    },
+    {
+      "degree": "Exchange Student",
+      "institution": "University of Melbourne",
+      "from": "July 2023",
+      "to": "Dec 2023"
+    }
+  ],
+  "_projects": [
+    {
+      "name": "Project 1",
+      "description": "A brief description of the project...",
+      "technologies": ["Python", "Django", "Docker"],
+      "link": "http://example.com/project1"
+    },
+    {
+      "name": "Project 2",
+      "description": "A brief description of the project...",
+      "technologies": ["JavaScript", "React", "Node.js"],
+      "link": "http://example.com/project2"
+    }
+  ],
+  "_certifications": [
+    {
+      "name": "Certified Kubernetes Administrator",
+      "issuer": "The Linux Foundation",
+      "date": "2020"
+    },
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2019"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Spanish",
+      "level": "Native"
+    },
+    {
+      "name": "French",
+      "level": "Basic"
+    }
+  ],
+  "more_info": "I enjoy learning new technologies and applying them to solve real-world problems. I am a quick learner and a team player who is always looking for ways to improve my skills and help others.",
+  "interests": ["Calisthenics", "3D Printing", "Guitar", "Drawing"]
+}
