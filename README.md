@@ -11,6 +11,13 @@ To run this project, you need to execute the `main.py` script. Make sure you hav
 python main.py
 ```
 
+You should have a `cv.json` file in the root directory with the structure of the example file. You can modify the file to fit your needs.
+
+It needs to connect to Chromium to generate the pdf file, so make sure you have the necessary drivers installed.
+
+Finally, the resulting pdf file will be in the root directory with the name `cv.pdf`.
+
+
 ## Future Work
 
 - [ ] Refactor the code to make it more modular
