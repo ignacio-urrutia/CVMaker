@@ -1,0 +1,17 @@
+# Ignore venv folder
+venv/
+
+# Ignore Python related files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore PDF and image files
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.svg
+*.html

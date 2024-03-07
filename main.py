@@ -3,7 +3,38 @@ import asyncio
 from pyppeteer import launch
 
 
-def json_to_html(json_file):
+def json_to_html(json_file, language='english'):
+    titles = {
+        'english': {
+            'summary': 'Summary',
+            'experience': 'Experience',
+            'education': 'Education',
+            'projects': 'Projects',
+            'skills': 'Skills',
+            'certifications': 'Certifications',
+            'extra_experience': 'Other Experience',
+            'languages': 'Languages',
+            'more_info': 'More About Me',
+            'interests': 'Other Interests',
+            'references': 'References'
+        },
+        'spanish': {
+            'summary': 'Resumen',
+            'experience': 'Experiencia',
+            'education': 'Educación',
+            'projects': 'Proyectos',
+            'skills': 'Habilidades',
+            'certifications': 'Certificaciones',
+            'extra_experience': 'Otras Experiencias',
+            'languages': 'Idiomas',
+            'more_info': 'Más Sobre Mí',
+            'interests': 'Otros Intereses',
+            'references': 'Referencias'
+        }
+    }
+
+    titles_dict = titles.get(language, titles['english'])
+
     contact_icons = {
         'phone': 'fa-solid fa-phone',
         'email': 'fa-solid fa-envelope',
@@ -22,7 +53,8 @@ def json_to_html(json_file):
         'linkedin': 'https://www.linkedin.com/in/',
         'github': 'https://www.github.com/',
         'twitter': 'https://www.twitter.com/',
-        'location': ''
+        'location': '',
+        'default': ''
     }
 
     with open(json_file, 'r') as file:
@@ -43,15 +75,17 @@ def json_to_html(json_file):
             .contact-info {{ display: flex; flex-direction: row; justify-content: space-around; }}
             
             .experience_item_header {{ display: flex; justify-content: space-between; }}
-            .experience_position {{ font-size: 20px; font-weight: bold; }}
-            .experience_company {{ font-size: 18px; }}
+            .experience_company {{ font-size: 20px; font-weight: bold; }}
+            .experience_position {{ font-size: 18px; }}
 
             .item {{ margin-bottom: 5px; }}
             .details {{ margin-left: 20px; }}
             .details li {{ margin-bottom: 5px; }}
 
-            .progress {{ height: 10px; background-color: #d1d1d1; width: 200px; border-radius: 5px; }}
+            .progress {{ height: 10px; background-color: #d1d1d1; width: 150px; border-radius: 5px; }}
             .progress-bar {{ background-color: #3C409F; height: 10px; border-radius: 5px; }}
+            
+            .languages-section {{ display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }}
 
             .skills-list {{ display: flex; list-style: none;  flex-direction: row; flex-wrap: wrap; padding: 0; }}
             .skills-list li {{ margin-right: 20px; margin-bottom: 20px; }}
@@ -81,20 +115,20 @@ def json_to_html(json_file):
         </div>
 
         <div class="section">
-            <div class="section-title">Summary</div>
+            <div class="section-title">{titles_dict['summary']}</div>
             <hr>
             <p>{cv_data['summary']}</p>
         </div>
 
         <div class="section">
-            <div class="section-title">Experience</div>
+            <div class="section-title">{titles_dict['experience']}</div>
             <hr>
             {''.join(f"""
                      <div class='item'>
                         <div class='experience_item_header'>
                             <div>
-                                <div class='experience_position'>{exp['position']}</div>
                                 <div class='experience_company'>{exp['company']}</div> 
+                                <div class='experience_position'>{exp['position']}</div>
                             </div>
                             <div class='experience_dates'>{exp['from']} - {exp['to']}</div>
                         </div>
@@ -103,22 +137,25 @@ def json_to_html(json_file):
         </div>
 
         <div class="section">
-            <div class="section-title">Education</div>
+            <div class="section-title">{titles_dict['education']}</div>
             <hr>
             {''.join(f"""
                      <div class='item'>
-                        <b>{edu['degree']}</b>, {edu['institution']} ({edu['from']} - {edu['to']})</div>
+                        <b>{edu['institution']}</b>: {edu['degree']} ({edu['from']} - {edu['to']})</div>
                      """ for edu in cv_data['education'])}
         </div>
 
+        {'' if 'projects' not in cv_data else f'''
         <div class="section">
-            <div class="section-title">Projects</div>
+            <div class="section-title">{titles_dict['projects']}</div>
             <hr>
             {''.join(f"<div class='item'><b>{proj['name']}</b>: {proj['description']} - <a href='{proj['link']}'>Link</a> (Technologies: {', '.join(proj['technologies'])})</div>" for proj in cv_data['projects'])}
         </div>
+        '''}
 
+        {'' if 'skills' not in cv_data else f'''
         <div class="section">
-            <div class="section-title">Skills</div>
+            <div class="section-title">{titles_dict['skills']}</div>
             <hr>
             <ul class="skills-list">
                 {''.join(f"""
@@ -130,12 +167,50 @@ def json_to_html(json_file):
                          """ for skill, value in cv_data['skills'].items() if value)}
             </ul>
         </div>
+        '''}
 
+        {'' if 'certifications' not in cv_data else f'''
         <div class="section">
-            <div class="section-title">Certifications</div>
+            <div class="section-title">{titles_dict['certifications']}</div>
             <hr>
             {''.join(f"<div class='item'>{cert['name']} (Issuer: {cert['issuer']}, Date: {cert['date']})</div>" for cert in cv_data['certifications'])}
         </div>
+        '''}
+
+        {'' if 'extra_experience' not in cv_data else f'''
+        <div class="section">
+            <div class="section-title">{titles_dict['extra_experience']}</div>
+            <hr>
+            {''.join(f"<div class='item'><b>{exp['company']}</b> - {exp['description']} ({exp['from']} - {exp['to']})</div>" for exp in cv_data['extra_experience'])}
+        </div>
+        '''}
+
+        {'' if 'languages' not in cv_data else f'''
+        <div class="section">
+            <div class="section-title">{titles_dict['languages']}</div>
+            <hr>
+            <div class="languages-section">
+                {''.join(f"<div class='item'>{lang['name']} ({lang['level']})</div>" for lang in cv_data['languages'])}
+            </div>
+        </div>
+        '''}
+
+        {'' if 'more_info' not in cv_data else f'''
+        <div class="section">
+            <div class="section-title">{titles_dict['more_info']}</div>
+            <hr>
+            <p>{cv_data['more_info']}</p>
+        </div>
+        '''}
+
+        {'' if 'interests' not in cv_data else f'''
+        <div class="section">
+            <div class="section-title">{titles_dict['interests']}</div>
+            <div class="languages-section">
+                {''.join(f"<div class='item'>{interest}</div>" for interest in cv_data['interests'])}
+            </div>
+        </div>
+        '''}
 
     </body>
     </html>
@@ -155,10 +230,8 @@ async def generate_pdf_from_html(html_content, pdf_path):
     
     await page.setContent(html_content)
 
-    # Sleep for 5 seconds to allow the PDF to be generated
+    # Sleep for 1 seconds to allow the PDF to be generated
     await asyncio.sleep(1)
-
-    # await page.goto('https://www.nachourrutia.com')
     
     await page.screenshot({'path': 'example.png', 'fullPage': True})
 
@@ -167,9 +240,8 @@ async def generate_pdf_from_html(html_content, pdf_path):
     
     await browser.close()
 
-
-# Replace 'your_cv.json' with the path to your JSON file
-json_to_html('cv.json')
+# Replace 'cv.json' with the path to your JSON file
+json_to_html('cv.json', 'english')
 
 
 html_content = open('cv.html', 'r').read()
